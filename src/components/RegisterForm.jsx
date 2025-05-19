@@ -30,7 +30,7 @@ function RegisterForm() {
         <input
           type="text"
           name="username"
-          placeholder="No"
+          placeholder="Name"
           value={formData.username}
           onChange={handleChange}
           required

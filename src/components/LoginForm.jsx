@@ -1,64 +1,66 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { saveToken } from "../utils/auth";
-import "./LoginForm.css";
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { saveToken } from '../utils/auth';
+import './LoginForm.css';
 
 function LoginForm() {
-  const [formData, setFormData] = useState({ email: "", password: "" });
-  const [error, setError] = useState("");
   const navigate = useNavigate();
+  const [formData, setFormData] = useState({ email: '', password: '' });
+  const [error, setError] = useState('');
 
   const handleChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError("");
+    setError('');
 
     try {
-        const response = await fetch(`${API_BASE_URL}/api/auth/login`, {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ email, password }),
-          });          
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/auth/login`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
 
       const data = await res.json();
-      if (res.ok) {
-        saveToken(data.token);
-        navigate("/home");
+
+      if (!res.ok) {
+        setError(data.message || 'Login failed');
       } else {
-        setError(data.message || "Login failed");
+        saveToken(data.token);
+        navigate('/home');
       }
     } catch (err) {
-      setError("Network error");
+      setError('Network error');
     }
   };
 
   return (
-    <form className="form" onSubmit={handleSubmit}>
-      <h2>Se connecter</h2>
-      <input
-        type="email"
-        name="email"
-        placeholder="Adresse e-mail"
-        value={formData.email}
-        onChange={handleChange}
-        required
-      />
-      <input
-        type="password"
-        name="password"
-        placeholder="Mot de passe"
-        value={formData.password}
-        onChange={handleChange}
-        required
-        autoComplete="current-password"
-      />
-      {error && <p className="error">{error}</p>}
-      <button type="submit">Login</button>
-    </form>
+    <div className="login-container">
+      <form onSubmit={handleSubmit} className="form">
+        <h2>Login</h2>
+        <input
+          type="email"
+          name="email"
+          placeholder="Email"
+          value={formData.email}
+          onChange={handleChange}
+          required
+          autoComplete="email"
+        />
+        <input
+          type="password"
+          name="password"
+          placeholder="Password"
+          value={formData.password}
+          onChange={handleChange}
+          required
+          autoComplete="current-password"
+        />
+        {error && <p className="error">{error}</p>}
+        <button type="submit">Login</button>
+      </form>
+    </div>
   );
 }
 

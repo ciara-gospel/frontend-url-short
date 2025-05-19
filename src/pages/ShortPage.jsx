@@ -9,7 +9,7 @@ const handleSubmit = async (e) => {
   setShortUrl("");
 
   try {
-    const res = await fetchWithAuth("http://localhost:4000/api/shorten", {
+    const res = await fetchWithAuth("/api/shorten", {
       method: "POST",
       body: JSON.stringify({ longUrl }),
     });

@@ -1,29 +1,30 @@
-// src/components/ShortenForm.jsx
 import { useState } from "react";
 import "./ShortenForm.css";
+
+const API_URL = import.meta.env.VITE_API_URL;
 
 function ShortenForm() {
   const [longUrl, setLongUrl] = useState("");
   const [shortUrl, setShortUrl] = useState("");
   const [error, setError] = useState("");
-  const [copied, setCopied] = useState(false); // 👈 Nouveau state
+  const [copied, setCopied] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     setError("");
     setShortUrl("");
     setCopied(false);
 
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch("http://localhost:4000/api/shorten", {
+      const response = await fetch(`${API_URL}/api/shorten`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
         },
-        body: JSON.stringify({ longUrl }),
+        // ✅ Correction ici : on envoie originalUrl
+        body: JSON.stringify({ originalUrl: longUrl }),
       });
 
       const data = await response.json();
@@ -33,7 +34,8 @@ function ShortenForm() {
         return;
       }
 
-      setShortUrl(`${window.location.origin}/s/${data.shortCode}`);
+      // ✅ Utilise le shortUrl retourné par l’API
+      setShortUrl(data.shortUrl || `${window.location.origin}/s/${data.shortCode}`);
     } catch (err) {
       setError("Server error. Please try again later.");
     }
@@ -42,10 +44,7 @@ function ShortenForm() {
   const handleCopy = () => {
     navigator.clipboard.writeText(shortUrl);
     setCopied(true);
-
-    setTimeout(() => {
-      setCopied(false);
-    }, 3000); // Message disparaît après 3 secondes
+    setTimeout(() => setCopied(false), 3000);
   };
 
   return (

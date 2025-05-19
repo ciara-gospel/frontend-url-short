@@ -3,6 +3,7 @@
     align-items: center;
     gap: 1rem;
     margin-top: 0.5rem;
+    font-size: 1.5rem;
 }
 
 .shorten-container {
@@ -51,9 +52,18 @@
 
 .copied-message {
     color: #28a745;
-    font-size: 0.9rem;
+    font-size: 0.5rem;
     margin-top: 0.5rem;
     animation: fadeInOut 3s ease-in-out;
+}
+
+.result {
+    margin-top: 6rem;
+    justify-self: center;
+
+    p {
+        font-size: 2rem;
+    }
 }
 
 @keyframes fadeInOut {
@@ -72,4 +82,14 @@
     100% {
         opacity: 0;
     }
+}
+
+@media (max-width: 475px) {
+    .short-link-container {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-top: 0.5rem;
+        font-size: 1rem;
+    } 
 }
