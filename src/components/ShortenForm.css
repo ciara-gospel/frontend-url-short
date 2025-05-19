@@ -1,0 +1,75 @@
+.short-link-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.shorten-container {
+    margin-top: 4rem;
+}
+
+.shorten-form {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.shorten-form input {
+    flex: 1;
+    padding: 0.8rem;
+    border-radius: 10px;
+    border-color: #83818157;
+}
+
+.shorten-form .shorten-btn {
+    padding: 0.9rem 1rem;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.shorten-btn {
+    background-color: #0057d8;
+    color: #fff;
+    border: none;
+    font-size: 14px;
+}
+
+.copy-button {
+    padding: 0.3rem 0.8rem;
+    font-size: 0.9rem;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.copy-button:hover {
+    background-color: #218838;
+}
+
+.copied-message {
+    color: #28a745;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+    animation: fadeInOut 3s ease-in-out;
+}
+
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
