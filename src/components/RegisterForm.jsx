@@ -17,7 +17,7 @@ function RegisterForm() {
 
     try {
       await registerUser(formData);
-      navigate('/home');
+      navigate('/login'); // ✅ Redirection vers la page login
     } catch (err) {
       setError(err.message);
     }
@@ -26,7 +26,7 @@ function RegisterForm() {
   return (
     <div className="register-container">
       <form onSubmit={handleSubmit} className="register-form">
-        <h2>Crate an account</h2>
+        <h2>Create an account</h2>
         <input
           type="text"
           name="username"
