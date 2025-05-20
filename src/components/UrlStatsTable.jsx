@@ -29,7 +29,15 @@ function UrlStatsTable({ urls }) {
                     /s/{url.shortCode}
                   </a>
                 </td>
-                <td className="long-url">{url.longUrl}</td>
+                <td>
+                  <a
+                    href={url.longUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {url.longUrl}
+                  </a>
+                </td>
                 <td>{new Date(url.createdAt).toLocaleDateString()}</td>
                 <td>
                   {url.expiresAt

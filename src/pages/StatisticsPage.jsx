@@ -1,7 +1,8 @@
-// src/pages/StatisticsPage.jsx
 import { useEffect, useState } from "react";
 import Header from "../components/Header";
 import UrlStatsTable from "../components/UrlStatsTable";
+
+const API_URL = import.meta.env.VITE_API_URL;
 
 function StatisticsPage() {
   const [urls, setUrls] = useState([]);
@@ -11,18 +12,20 @@ function StatisticsPage() {
     const fetchUrls = async () => {
       try {
         const token = localStorage.getItem("token");
-        const response = await fetch("http://localhost:5000/api/my-urls", {
+        const response = await fetch(`${API_URL}/api/my-urls`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
         });
 
         const data = await response.json();
+        console.log("URLs récupérées :", data.urls);
+        setUrls(data.urls || []);
 
         if (!response.ok) {
           setError(data.message || "Failed to fetch stats.");
         } else {
-          setUrls(data);
+          setUrls(data.urls || []);
         }
       } catch (err) {
         setError("Server error.");

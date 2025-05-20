@@ -1,6 +1,7 @@
 .home-container {
     text-align: center;
     padding: 3rem 1rem;
+    margin-top: 8rem;
 }
 
 .welcome-text {
@@ -13,9 +14,19 @@
 .instructions {
     max-width: 600px;
     margin: 0 auto 2rem;
-    line-height: 1.6;
+    line-height: 1.8;
     font-size: 1.1rem;
-    color: #555;
+    color: #3b3b3be5;
+}
+
+.instruction-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 1rem;
+    text-align: left;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
 }
 
 .start-button {
@@ -31,6 +42,19 @@
 
 .start-button:hover {
     background-color: #0045a5;
+}
+
+.arrow-register-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding-top: 60px;
+    color: #007bff;
+    transition: transform 0.2s;
+}
+
+.arrow-register-button:hover {
+    transform: translateX(-3px);
 }
 
 @keyframes fadeIn {

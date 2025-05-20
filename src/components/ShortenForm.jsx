@@ -34,7 +34,6 @@ function ShortenForm() {
         return;
       }
 
-      // ✅ Utilise le shortUrl retourné par l’API
       setShortUrl(data.shortUrl || `${window.location.origin}/s/${data.shortCode}`);
     } catch (err) {
       setError("Server error. Please try again later.");

@@ -21,6 +21,7 @@
     padding: 0.8rem;
     border-radius: 10px;
     border-color: #83818157;
+    margin-top: 4rem;
 }
 
 .shorten-form .shorten-btn {
@@ -34,6 +35,7 @@
     color: #fff;
     border: none;
     font-size: 14px;
+    margin-top: 4rem;
 }
 
 .copy-button {

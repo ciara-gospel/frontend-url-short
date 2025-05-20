@@ -1,4 +1,3 @@
-// src/pages/ShortPage.jsx
 import Header from "../components/Header";
 import ShortenForm from "../components/ShortenForm";
 import { fetchWithAuth } from "../utils/auth";
