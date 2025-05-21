@@ -46,7 +46,7 @@ function RegisterForm() {
         <input
           type="password"
           name="password"
-          placeholder="Mot de passe"
+          placeholder="Password"
           value={formData.password}
           onChange={handleChange}
           required
