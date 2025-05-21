@@ -23,7 +23,6 @@ function ShortenForm() {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
         },
-        // ✅ Correction ici : on envoie originalUrl
         body: JSON.stringify({ originalUrl: longUrl }),
       });
 

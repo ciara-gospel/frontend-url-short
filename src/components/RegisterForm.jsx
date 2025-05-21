@@ -17,7 +17,7 @@ function RegisterForm() {
 
     try {
       await registerUser(formData);
-      navigate('/login'); // ✅ Redirection vers la page login
+      navigate('/login');
     } catch (err) {
       setError(err.message);
     }

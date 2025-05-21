@@ -1,7 +1,7 @@
 import Header from '../components/Header';
 import './HomePage.css';
 import { useNavigate } from 'react-router-dom';
-import { ArrowLeft } from 'lucide-react'; // ⬅️ flèche gauche
+import { ArrowLeft } from 'lucide-react';
 
 function HomePage() {
   const navigate = useNavigate();
@@ -12,8 +12,6 @@ function HomePage() {
       <div className="home-container">
 
         <h1 className="welcome-text">Welcome to LinkShort 🎉</h1>
-
-        {/* Flèche + texte d'instruction */}
         <div className="instruction-row">
           <button
             className="arrow-register-button"
