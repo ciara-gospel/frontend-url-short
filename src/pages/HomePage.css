@@ -1,0 +1,70 @@
+.home-container {
+    text-align: center;
+    padding: 3rem 1rem;
+    margin-top: 8rem;
+}
+
+.welcome-text {
+    font-size: 2rem;
+    font-weight: bold;
+    animation: fadeIn 1.5s ease-in-out;
+    margin-bottom: 1.5rem;
+}
+
+.instructions {
+    max-width: 600px;
+    margin: 0 auto 2rem;
+    line-height: 1.8;
+    font-size: 1.1rem;
+    color: #3b3b3be5;
+}
+
+.instruction-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 1rem;
+    text-align: left;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.start-button {
+    background-color: #0057d8;
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.start-button:hover {
+    background-color: #0045a5;
+}
+
+.arrow-register-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding-top: 60px;
+    color: #007bff;
+    transition: transform 0.2s;
+}
+
+.arrow-register-button:hover {
+    transform: translateX(-3px);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
